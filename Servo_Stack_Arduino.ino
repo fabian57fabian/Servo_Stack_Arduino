@@ -1,25 +1,41 @@
+/* Made by Fabian_57 on may 30, 2017
+
+   This code is open-source so downlaod it, try it, change it to
+   fit in your project.
+
+   you have to attach a touch input at the servo
+   i used an sg90 servo (chap, easy to use)
+   connected to pin 9 (you ca connect to any pin, but it has to
+   be a PWM pin), GND---GND, Vin---5V
+
+   up and down variables set to 90 and 120 are the angle that the
+   servo has to be in order to tap or not. Those work in my
+   project, so you have to change that in order to make it work
+   properly. have fun!
+*/
 #include <Servo.h>
-int su=90;
-int giu=120;
+int up = 90;
+int down = 120;
+int pinServo = 9;//this pin
 Servo servo1;
 
 void setup() {
-  servo1.attach(9);
-  servo1.write(40);//tira su il pennino
+  servo1.attach(pinServo);
+  servo1.write(40);//pull up to insert the phone
   pinMode(13, OUTPUT);
   digitalWrite(13, HIGH);
-  delay(3000);//aspetta 3 secondi per inserire il telefono
-  
+  delay(3000);//wait 3 second to insert the phone
+
   digitalWrite(13, LOW);
-  servo1.write(giu);
+  servo1.write(down);//push down
   delay(200);
-  servo1.write(su);
+  servo1.write(up);//pull up
   delay(770);
 }
 
 void loop() {
-  servo1.write(giu); //1
+  servo1.write(down); //1
   delay(200);
-  servo1.write(su);//0
+  servo1.write(up);//0
   delay(600);
 }
