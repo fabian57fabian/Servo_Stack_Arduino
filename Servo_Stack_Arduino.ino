@@ -16,17 +16,19 @@
 #include <Servo.h>
 int up = 90;
 int down = 120;
+int baseInsertPos = 40
 int pinServo = 9;//this pin
+int pinLed = 13;
 Servo servo1;
 
 void setup() {
   servo1.attach(pinServo);
-  servo1.write(40);//pull up to insert the phone
-  pinMode(13, OUTPUT);
-  digitalWrite(13, HIGH);
+  servo1.write(baseInsertPos);//pull up to insert the phone
+  pinMode(pinLed, OUTPUT);
+  digitalWrite(pinLed, HIGH);
   delay(3000);//wait 3 second to insert the phone
 
-  digitalWrite(13, LOW);
+  digitalWrite(pinLed, LOW);
   servo1.write(down);//push down
   delay(200);
   servo1.write(up);//pull up
