@@ -16,7 +16,7 @@
 #include <Servo.h>
 int up = 90;
 int down = 120;
-int baseInsertPos = 40
+int baseInsertPos = 40;
 int pinServo = 9;//this pin
 int pinLed = 13;
 Servo servo1;
